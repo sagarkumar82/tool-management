@@ -46,9 +46,21 @@ const AdminDashboard = () => {
         await updateTool(editingTool._id, formData);
         setEditingTool(null); 
         alert("Tool updated successfully!");
+        setToolData({
+          name: "",
+          category: "",
+          quantity: 0,
+          image: null,
+        })
       } else {
         await addTool(formData); 
         alert("Tool added successfully!");
+        setToolData({
+          name: "",
+          category: "",
+          quantity: 0,
+          image: null,
+        })
       }
       fetchTools();
     } catch (error) {
