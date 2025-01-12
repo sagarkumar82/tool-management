@@ -6,7 +6,7 @@ import LoginForm from "./components/LoginForm";
 import RegisterForm from "./components/RegisterForm";
 import GetIssuedTool from './components/GetIssuedTool';
 import ToolCategoryPage from './pages/ToolCategoryPage';
-import IssuedTools from './components/issuedTools';
+import IssuedTools from './components/IssuedTools';
 import AllUser from './components/AllUser';
 import PrivateRoute from './components/PrivateRoute';
 import { useContext } from 'react';
