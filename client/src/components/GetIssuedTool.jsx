@@ -15,7 +15,7 @@ function GetIssuedTool() {
     const nav = useNavigate()
 
     const fetchTool = () => {
-        axios.post('http://localhost:5000/api/tools/get-issued-tools' , {userId:rec.user.id} )
+        axios.post(import.meta.env.VITE_BASE_URL +'/get-issued-tools' , {userId:rec.user.id} )
         .then(res=>{setTools(res.data.data)}).catch(err=>{console.log(err)})
     }
     useEffect(()=>{
@@ -53,7 +53,7 @@ function GetIssuedTool() {
           }}
         >
           <img
-            src={`http://localhost:5000/${tool?.tool.image}`}
+            src={`${import.meta.env.VITE_IMAGE_URL}/${tool?.tool.image}`}
             className="card-img-top"
             alt={tool.name}
           />
