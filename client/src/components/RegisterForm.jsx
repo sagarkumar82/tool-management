@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { registerMechanic } from "../api/api";
 import '../styles/register.css'; 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +12,7 @@ const RegisterForm = () => {
     picture: "",
     level: "Expert",
   });
+  const nav = useNavigate()
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -22,7 +23,7 @@ const RegisterForm = () => {
     try {
       await registerMechanic(formData);
       alert("Registration successful!");
-      window.location.href= '/login'
+      nav('/login')
 
     } catch (error) {
       alert(error.response.data.message);

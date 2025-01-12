@@ -2,6 +2,7 @@ import axios from "axios"
 import {  useEffect, useState } from "react"
 import { getTools, issueTool, returnTool } from "../api/api";
 import Header from "./Header";
+import { useNavigate } from "react-router-dom";
 
 function GetIssuedTool() {
 
@@ -11,7 +12,7 @@ function GetIssuedTool() {
     const [selectedTool, setSelectedTool] = useState(null);
     const[toolId , setToolId] = useState("")
     const[quantity , setQuantity] =  useState("")
-    console.log(tools)
+    const nav = useNavigate()
 
     const fetchTool = () => {
         axios.post('http://localhost:5000/api/tools/get-issued-tools' , {userId:rec.user.id} )
@@ -28,7 +29,7 @@ function GetIssuedTool() {
           await returnTool({ issueId: toolId ,  mechanicId : rec.user.id , quantity:quantity});
           fetchTool();
           alert("Tool returned!");
-          window.location.href = '/mechanic'
+          nav('/mechanic')
         }
       };
   return (

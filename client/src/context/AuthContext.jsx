@@ -1,9 +1,11 @@
 import { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(null);
+  const nav = useNavigate()
 
   const login = (userData) => {
     setAuth(userData);
@@ -13,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setAuth(null);
     localStorage.removeItem("auth");
-    window.location.href='/login'
+    nav('/login')
   };
 
   useEffect(()=>{
