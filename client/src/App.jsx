@@ -1,4 +1,4 @@
-import {  Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home";
 import AdminPage from "./pages/AdminPage";
 import MechanicPage from "./pages/MechanicPage";
@@ -16,6 +16,7 @@ const App = () => {
   const rec = useContext(AuthContext)
   return (
     <>
+      <Router>
       <Routes>
         <Route path="/" element={<PrivateRoute/>}>
           <Route path="/" element={rec?.auth?.user?.role==='admin' ? <AdminPage /> : rec?.auth?.user?.role==='mechanic' ? <MechanicPage /> : <Home/> } />
@@ -30,7 +31,9 @@ const App = () => {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
       </Routes>
-     
+      
+
+      </Router>
       </>
   );
 };
