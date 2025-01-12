@@ -1,0 +1,78 @@
+.admin-dashboard-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .admin-dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .admin-dashboard-form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-dashboard-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .admin-dashboard-label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .admin-dashboard-input,
+  .admin-dashboard-select {
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .admin-dashboard-submit-button {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .admin-dashboard-tools-title {
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .admin-dashboard-tools-list {
+    margin-top: 20px;
+  }
+  
+  .admin-dashboard-tool-card .card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-dashboard-tool-image {
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  .admin-dashboard-tool-body {
+    padding: 15px;
+  }
+  
+  .admin-dashboard-tool-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .admin-dashboard-tool-category,
+  .admin-dashboard-tool-quantity {
+    font-size: 14px;
+  }
+  .card-img-top{
+    height: 300px;
+    object-fit: contain;
+  }
