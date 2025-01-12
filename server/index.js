@@ -12,8 +12,15 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// Specify the frontend origin
+const corsOptions = {
+    origin: 'https://frontend-fxpa.onrender.com', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+    credentials: true, 
+  };
+  app.use(cors(corsOptions));
+  app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 app.use('/api/users', userRoutes);
