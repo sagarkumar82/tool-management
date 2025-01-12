@@ -14,10 +14,17 @@ function GetIssuedTool() {
     const[quantity , setQuantity] =  useState("")
     const nav = useNavigate()
 
-    const fetchTool = () => {
-        axios.post( 'https://tool-management.onrender.com/api/get-issued-tools' , {userId:rec.user.id} )
-        .then(res=>{setTools(res.data.data)}).catch(err=>{console.log(err)})
-    }
+    const fetchTool = async () => {
+      try {
+        const response = await axios.post(
+          "https://tool-management.onrender.com/api/tools/get-issued-tools",
+          { userId: rec.user.id }
+        );
+        setTools(response.data.data); // Assuming the response structure contains data in this path
+      } catch (error) {
+        console.error("Error fetching tools:", error);
+      }
+    };
     useEffect(()=>{
         fetchTool()
     },[])
