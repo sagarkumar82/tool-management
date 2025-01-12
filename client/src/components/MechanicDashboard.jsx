@@ -2,12 +2,14 @@ import { useState, useEffect, useContext } from "react";
 import { getTools, issueTool } from "../api/api";
 import Header from "./Header";
 import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const MechanicDashboard = () => {
   const [tools, setTools] = useState([]);
   const [selectedTool, setSelectedTool] = useState(null);
-  const [showModal, setShowModal] = useState(false); // State to manage modal visibility
+  const [showModal, setShowModal] = useState(false);
   const [quantity, setQuantity] = useState('');
+  const nav = useNavigate()
   const rec = useContext(AuthContext);
 
   useEffect(() => {
@@ -24,12 +26,10 @@ const MechanicDashboard = () => {
       await issueTool({ toolId: selectedTool, mechanicId: rec.auth.user.id, quantity });
       fetchTools();
       alert("Tool issued!");
-      setShowModal(false); // Close the modal after issuing the tool
-      setTimeout(() => {
-        window.location.reload()
-      }, 1000);
+      setShowModal(false); 
+      nav('/get-issued-tool')
     } else {
-      alert("Please provide a reason for issuing the tool.");
+      alert("Please provide a quantity for issuing the tool.");
     }
   };
 
